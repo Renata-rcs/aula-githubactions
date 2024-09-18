@@ -1,0 +1,34 @@
+name: Workflow
+
+on: 
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+       
+    steps:
+      - name: Passo 1
+        run: echo "Exibir uma mensagem de texto para o passo 1"
+
+      - name: Passo 2
+        run: echo "Exibir uma mensagem de texto para o passo 2"
+
+  job2:
+    runs-on: ubuntu-latest
+       
+    steps:
+      - name: Passo 1
+        run: echo "Exibir uma mensagem de texto para o passo 1"
+
+      - name: Passo 2
+        run: echo "Exibir uma mensagem de texto para o passo 2"
+
+
+        
+      
