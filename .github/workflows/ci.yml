@@ -1,0 +1,33 @@
+name: Integração Contínua com testes
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do projeto node na máquina ubuntu
+        uses: actions/checkout@v4
+      
+      - name: Configuração do Node.js na versão 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalação das Dependências
+        run: npm install
+
+      - name: Execução dos testes
+        run: npm run test
+  
+  sucesso:
+    name: Sucesso
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Exibir mensagem de sucesso pro workflow
+        run: echo "O pipeline funcionou com sucesso"
